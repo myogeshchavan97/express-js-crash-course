@@ -1,16 +1,17 @@
 const express = require('express');
-const path = require('path');
+const todoRoutes = require('./routes/todo');
 require('./db');
 
 const app = express();
-const publicPath = path.join(__dirname, 'public');
 
-app.use(express.static(publicPath));
+// const todo = new Todo({
+//   title: '  Second Todo  ',
+//   status: 'completed'
+// });
 
-app.get('*', (req, res) => {
-  const filePath = path.join(__dirname, 'public', '404.html');
-  res.sendFile(filePath);
-});
+// todo.save();
+
+app.use('/api/todos', todoRoutes);
 
 app.listen(3030, () => {
   console.log('server started on port 3030');
