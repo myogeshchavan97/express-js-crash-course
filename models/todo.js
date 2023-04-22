@@ -10,12 +10,18 @@ const TodoSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
+    maxLength: 20
   },
   status: {
     type: String,
     required: false,
-    default: STATUSES.NOT_STARTED
+    default: STATUSES.NOT_STARTED,
+    validate: (value) => {
+      if (!Object.values(STATUSES).includes(value)) {
+        throw new Error();
+      }
+    }
   }
 });
 
