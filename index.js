@@ -1,5 +1,6 @@
 const express = require('express');
 const todoRoutes = require('./routes/todo');
+const userRoutes = require('./routes/user');
 require('./db');
 
 const PORT = process.env.PORT || 3030;
@@ -9,6 +10,7 @@ const app = express();
 app.use(express.json());
 
 app.use('/api/todos', todoRoutes);
+app.use('/api/users', userRoutes);
 
 app.use((error, req, res, next) => {
   if (error) {
