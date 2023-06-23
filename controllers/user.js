@@ -10,7 +10,11 @@ const addUser = async (req, res, next) => {
       password: hashedPassword
     });
     await user.save();
-    return res.status(201).send(user);
+    const token = await user.createToken();
+    return res.status(201).send({
+      user,
+      token
+    });
   } catch (error) {
     console.log(error);
     next(
@@ -46,7 +50,11 @@ const authenticateUser = async (req, res, next) => {
       );
     }
 
-    res.send(user);
+    const token = await user.createToken();
+    res.send({
+      user,
+      token
+    });
   } catch (error) {
     console.log(error);
     next(
