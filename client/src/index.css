@@ -19,3 +19,7 @@ form {
 .heading {
   text-align: center;
 }
+
+.error-msg {
+  color: #ff0000;
+}
