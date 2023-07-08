@@ -4,6 +4,7 @@ Create `.env` file in the `server` folder and add the following contents inside 
 
 ```js
 DB_CONNECTION_URL=your_db_connection_url
+JWT_SECRET_KEY=your_jwt_secret_key
 ```
 
 ## How To Run The Application
