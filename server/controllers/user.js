@@ -4,6 +4,17 @@ const { getErrorMessage } = require('../utils/functions');
 
 const addUser = async (req, res, next) => {
   try {
+    const oldUser = await User.findOne({
+      email: req.body.email
+    });
+    if (oldUser) {
+      return next(
+        getErrorMessage({
+          status: 400,
+          message: 'User with the provided email already exist.'
+        })
+      );
+    }
     const hashedPassword = await bcrypt.hash(req.body.password, 8);
     const user = new User({
       ...req.body,

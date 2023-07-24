@@ -23,3 +23,9 @@ form {
 .error-msg {
   color: #ff0000;
 }
+
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
