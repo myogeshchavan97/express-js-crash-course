@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import AddTodo from './components/add-todo/AddTodo';
 import Dashboard from './components/dashboard/Dashboard';
 import Header from './components/header/Header';
 import Login from './components/login/Login';
@@ -23,6 +24,7 @@ function App() {
       <div className='container'>
         <Routes>
           <Route path='/' element={<Dashboard />} />
+          <Route path='/add-todo' element={<AddTodo userInfo={userInfo} />} />
           <Route path='/login' element={<Login setUser={setUser} />} />
           <Route path='/register' element={<Register setUser={setUser} />} />
         </Routes>

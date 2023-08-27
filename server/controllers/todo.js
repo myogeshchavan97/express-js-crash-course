@@ -22,14 +22,14 @@ const addTodo = async (req, res, next) => {
       return next(
         getErrorMessage({
           status: 400,
-          message: "Only valid fields to update: 'title', 'status'"
+          message: "Only valid fields to update: 'title', 'status', 'owner'"
         })
       );
     }
 
     const todo = new Todo(req.body);
     await todo.save();
-    res.status(201).send();
+    res.status(201).send(todo);
   } catch (error) {
     console.log(error);
     next(
