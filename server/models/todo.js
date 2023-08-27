@@ -6,24 +6,34 @@ const STATUSES = {
   COMPLETED: 'completed'
 };
 
-const TodoSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
-    trim: true,
-    maxLength: 20
-  },
-  status: {
-    type: String,
-    required: false,
-    default: STATUSES.NOT_STARTED,
-    validate: (value) => {
-      if (!Object.values(STATUSES).includes(value)) {
-        throw new Error();
+const TodoSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+      trim: true,
+      maxLength: 20
+    },
+    status: {
+      type: String,
+      required: false,
+      default: STATUSES.NOT_STARTED,
+      validate: (value) => {
+        if (!Object.values(STATUSES).includes(value)) {
+          throw new Error();
+        }
       }
+    },
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'User'
     }
+  },
+  {
+    timestamps: true
   }
-});
+);
 
 const Todo = mongoose.model('Todo', TodoSchema);
 

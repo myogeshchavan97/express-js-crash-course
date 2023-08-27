@@ -24,6 +24,10 @@ form {
   color: #ff0000;
 }
 
+.success-msg {
+  color: #16c016;
+}
+
 .right {
   display: flex;
   justify-content: center;

@@ -16,6 +16,11 @@ const Header = ({ userInfo, logoutUser }) => {
               <Link to='/' className='nav-link'>
                 Home
               </Link>
+              {userInfo && (
+                <Link to='/add-todo' className='nav-link'>
+                  Add Todo
+                </Link>
+              )}
               {!userInfo && (
                 <React.Fragment>
                   <Link to='/login' className='nav-link'>
