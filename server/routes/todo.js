@@ -1,6 +1,7 @@
 const express = require('express');
 const {
   getTodos,
+  getTodo,
   addTodo,
   updateTodo,
   deleteTodo
@@ -9,6 +10,8 @@ const {
 const Router = express.Router();
 
 Router.get('/', getTodos);
+
+Router.get('/:id', getTodo);
 
 Router.post('/', addTodo);
 
