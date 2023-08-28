@@ -23,7 +23,7 @@ function App() {
       <Header userInfo={userInfo} logoutUser={logoutUser} />
       <div className='container'>
         <Routes>
-          <Route path='/' element={<Dashboard />} />
+          <Route path='/' element={<Dashboard userInfo={userInfo} />} />
           <Route path='/add-todo' element={<AddTodo userInfo={userInfo} />} />
           <Route path='/login' element={<Login setUser={setUser} />} />
           <Route path='/register' element={<Register setUser={setUser} />} />

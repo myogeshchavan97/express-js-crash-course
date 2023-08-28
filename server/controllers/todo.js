@@ -15,6 +15,20 @@ const getTodos = async (req, res, next) => {
   }
 };
 
+const getTodo = async (req, res, next) => {
+  try {
+    const todos = await Todo.find({ owner: req.params.id });
+    res.send(todos);
+  } catch (error) {
+    console.log(error);
+    next(
+      getErrorMessage({
+        message: 'Error while getting list of todos. Try again later.'
+      })
+    );
+  }
+};
+
 const addTodo = async (req, res, next) => {
   try {
     const areValidFields = validateFields(req.body);
@@ -111,6 +125,7 @@ const deleteTodo = async (req, res, next) => {
 
 module.exports = {
   getTodos,
+  getTodo,
   addTodo,
   updateTodo,
   deleteTodo
