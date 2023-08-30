@@ -95,7 +95,7 @@ const Register = ({ setUser }) => {
           {submitting ? 'Submitting...' : 'Register'}
         </Button>
         <div className='mt-2'>
-          Already have an account? <Link to='/login'>login here</Link>
+          Already have an account? <Link to='/'>login here</Link>
         </div>
       </Form>
     </div>
