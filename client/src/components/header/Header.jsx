@@ -23,9 +23,6 @@ const Header = ({ userInfo, logoutUser }) => {
               )}
               {!userInfo && (
                 <React.Fragment>
-                  <Link to='/login' className='nav-link'>
-                    Login
-                  </Link>
                   <Link to='/register' className='nav-link'>
                     Register
                   </Link>
